@@ -5,6 +5,8 @@
 # який у даному випадку буде дуже зручним та спростить виконання
 # завдання.
 import json
+# import os
+# PATH = os.path.abspath(__file__+"/..")
 
 def read_links():
     with open("links.json", "r", encoding="utf-8") as f:
@@ -13,7 +15,7 @@ def read_links():
 
 def write_links(data):
     with open("links.json", "w", encoding="utf-8") as f:
-        json.dump(data, f, indent=4, ensure_ascii=False)
+        json.dump(data, f, indent=2, ensure_ascii=False)
 
 def is_key_in_keys(name_key):
     data = read_links()

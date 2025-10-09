@@ -1,0 +1,14 @@
+[
+  {
+    "name": "car",
+    "cost": 1000
+  },
+  {
+    "name": "sss",
+    "cost": "111"
+  },
+  {
+    "name": "qwert",
+    "cost": "3333"
+  }
+]
