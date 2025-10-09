@@ -13,18 +13,20 @@ import random
 # ==============================================
 
 with open("number.txt", "w") as f:
-    for _ in range(999):
+    for _ in range(10):
         f.write(f"{random.random()}, ")
-    f.write(f"{random.random()}")
+    f.write(f"{random.random()}, ")
 with open("number.txt", "r") as f:
     data = f.read()
+
 list_number = data.split(", ")
-# print(list_number)
+list_number.pop()
+
 sum = 0
 for number in list_number:
     sum += float(number)
 print()
-print(f"Сума випадкови чисел: {sum}.")
+print(f"Сума випадкових чисел: {round(sum, 2)}.")
 
     
     
