@@ -1,14 +1,25 @@
 # Створіть список товарів в інтернет-магазині. Серіалізуйте його 
 # за допомогою pickle та збережіть у JSON.
 import json
+import pickle
+import os
+
+PATH = os.path.abspath(__file__+"/..")
+# print(os.listdir(PATH))
+# os.remove(os.path.join(PATH, "calc.txt"))
 def read_list():
-    with open("list_of_goods.json", "r", encoding="utf-8") as f:
-        list = json.load(f)
-    return list
+    # with open(os.path.join(PATH, "list_of_goods.json"), "r", encoding="utf-8") as f:
+    #     list = json.load(f)
+    with open(os.path.join(PATH, "list_of_good.pkl"), "rb") as f:
+        list_pkl = pickle.load(f)
+        print(list_pkl)
+    return list_pkl
 
 def write_list(data):
-    with open("list_of_goods.json", "w", encoding="utf-8") as f:
+    with open(os.path.join(PATH, "list_of_goods.json"), "w", encoding="utf-8") as f:
         json.dump(data, f, indent=2, ensure_ascii=False)
+    with open(os.path.join(PATH, "list_of_good.pkl"), "wb") as f:
+        pickle.dump(data, f)
 
 def is_name_in_goods(product_name):
     data = read_list()
@@ -43,8 +54,8 @@ while True:
             for item in data:
                 # print(item["name"])
                 if get_goods == item["name"]:
-                    print(f"За назвою '{get_goods}' маємо посилання: {item["cost"]}.")
+                    print(f"Маємо '{get_goods}' вартістю: {item["cost"]}.")
         else:      
-            print (f"За ключем '{get_goods}' посилання не знайдено.")
+            print (f"Товару '{get_goods}' не знайдено.")
     else:
         print("Зробіть свій вибір вірно")
