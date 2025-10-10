@@ -12,7 +12,7 @@ def read_list():
     #     list = json.load(f)
     with open(os.path.join(PATH, "list_of_good.pkl"), "rb") as f:
         list_pkl = pickle.load(f)
-        print(list_pkl)
+        # print(list_pkl)
     return list_pkl
 
 def write_list(data):
